@@ -3,13 +3,15 @@ let score = scorefield.firstElementChild
 let one = document.querySelector('#one')
 let two = document.querySelector('#two')
 let three = document.querySelector('#three')
+//mozna pobierac z localStorage
+//let scorep = localStorage.scorep
 let scorep = 0
 //wejsciowa jest tablica ktora zawiera tablice 3 elementowe
 //z czego 1 to pytanie a 3 pozostałe to propozycje odpowiedzi
 //poprawna odpowiedz zawiera "-" na początku stringa
 // przykład inputu arr [["Pytanie za 1 pkt", "-odpowiedz1", "+odpowiedz2", "-odpowiedz3"]]
 //uruchomienie z konsoli komenda next()
-// mozna pobrac let i = localStorage.getItem('progress') zeby kontynuowac
+// mozna pobrac let i = localStorage.progress zeby kontynuowac
 let i = 0
 
 next()
@@ -58,6 +60,7 @@ function good() {
     scorep++
     score.innerHTML = "Wynik: " + scorep
     i++
+    window.localStorage.setItem('score', scorep)
     one.removeEventListener('click', good)
     two.removeEventListener('click', good)
     three.removeEventListener('click', good)
